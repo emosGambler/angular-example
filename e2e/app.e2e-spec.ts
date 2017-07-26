@@ -1,10 +1,10 @@
-import { GorajAngularTestApplicationPage } from './app.po';
+import { GorajAngularTestApplication2Page } from './app.po';
 
-describe('goraj-angular-test-application App', function() {
-  let page: GorajAngularTestApplicationPage;
+describe('goraj-angular-test-application2 App', function() {
+  let page: GorajAngularTestApplication2Page;
 
   beforeEach(() => {
-    page = new GorajAngularTestApplicationPage();
+    page = new GorajAngularTestApplication2Page();
   });
 
   it('should display message saying app works', () => {

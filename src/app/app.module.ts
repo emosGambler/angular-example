@@ -1,17 +1,17 @@
+import { AlertModule } from 'ngx-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { FormComponentComponent } from './form/form-component/form-component.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FormComponentComponent
+    AppComponent
   ],
   imports: [
+    AlertModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule

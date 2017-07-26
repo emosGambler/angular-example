@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class GorajAngularTestApplicationPage {
+export class GorajAngularTestApplication2Page {
   navigateTo() {
     return browser.get('/');
   }
