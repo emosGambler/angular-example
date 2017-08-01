@@ -21,8 +21,7 @@ import { Component, Input } from '@angular/core';
             </div>
             <div class="panel-footer"><a [text]="buttonText" class="btn btn-info" (click)="showHideData()"></a></div>
         </div>
-    `,
-    styleUrls: ['./form.component.css']
+    `
 })
 export class FormComponent {
     
