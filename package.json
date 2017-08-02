@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^4.3.1",
     "@angular/platform-browser-dynamic": "^4.3.1",
     "@angular/router": "^4.3.1",
+    "@types/jasmine": "^2.5.53",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "ngx-bootstrap": "^1.8.0",
@@ -52,5 +53,8 @@
   "bugs": {
     "url": "https://github.com/emosGambler/goraj-angular-test-application/issues"
   },
-  "homepage": "https://github.com/emosGambler/goraj-angular-test-application#readme"
+  "homepage": "https://github.com/emosGambler/goraj-angular-test-application#readme",
+  "devDependencies": {
+    "@types/jasmine": "^2.5.53"
+  }
 }
