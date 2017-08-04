@@ -3,7 +3,13 @@ import { mockupData } from './../data/api.mockup';
 
 @Component({
     selector: 'useful-links',
-    template: `<useful-link *ngFor="let link of usefulLinks" [link]="link"></useful-link>`
+    template: `
+        <div class="row">
+            <div *ngFor="let link of usefulLinks" class="col-md-6">
+                <useful-link [link]="link"></useful-link>
+            </div>
+        </div>
+    `
 })
 export class UsefulLinksComponent {
     private usefulLinks: any = mockupData

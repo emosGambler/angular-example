@@ -28,5 +28,11 @@ export const mockupData = [
         name: 'Reddit',
         description: 'Forum about every topic',
         url: 'http://www.reddit.com/'
-    }  
+    },
+    {
+        id: 5,
+        name: 'Test',
+        description: 'Very long description. Very long description. Very long description. Very long description. Very long description. Very long description. Very long description. Very long description. Very long description. Very long description. ',
+        url: 'http://www.nothing.com/'
+    }    
 ]
