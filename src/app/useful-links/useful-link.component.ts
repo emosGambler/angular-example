@@ -13,6 +13,12 @@ import { Component, Input } from '@angular/core';
                     </p>
                     <p [hidden]="!shouldHideUrl"> <a class="btn btn-success" (click)="showHideUrl()">Show</a></p>
                     <p *ngIf="link.rate">Rate: {{ link.rate }}</p>
+                    <div [ngSwitch]="link.type">
+                        <p *ngSwitchCase="'information'" class="glyphicon glyphicon-info-sign">
+                        <p *ngSwitchCase="'fun'" class="glyphicon glyphicon-tower">
+                        <p *ngSwitchCase="'programming'" class="glyphicon glyphicon-arrow-right">
+                        <p *ngSwitchCase="'other'">
+                    </div>
                 </div>
             </div>
         </div>
