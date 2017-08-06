@@ -1,4 +1,14 @@
-export const mockupData = [
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class UsefulLinksService {
+    getUsefulLinks() {
+        return LINKS;
+    }
+
+}
+
+const LINKS = [
     {
         id: 0,
         name: 'Google',

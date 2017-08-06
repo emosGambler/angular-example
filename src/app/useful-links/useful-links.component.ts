@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { mockupData } from './../data/api.mockup';
+import { UsefulLinksService } from './../shared/useful-links.service';
 
 @Component({
     selector: 'useful-links',
@@ -12,7 +12,8 @@ import { mockupData } from './../data/api.mockup';
     `
 })
 export class UsefulLinksComponent {
-    private usefulLinks: any = mockupData
-
-    constructor() { }
+    usefulLinks: any[];
+    constructor(private usefulLinksService: UsefulLinksService) { 
+        this.usefulLinks = usefulLinksService.getUsefulLinks();
+    }
 }
