@@ -12,7 +12,7 @@ import { Component, Input } from '@angular/core';
                         <a class="btn btn-info" (click)="showHideUrl()">Hide</a>
                     </p>
                     <p [hidden]="!shouldHideUrl"> <a class="btn btn-success" (click)="showHideUrl()">Show</a></p>
-                    <p [ngClass]="{green: link.rate > 8.0}" *ngIf="link.rate">Rate: {{ link.rate }}</p>
+                    <p [style.color]="link.rate > 8.0 ? '#228b22': '#bbb'" *ngIf="link.rate">Rate: {{ link.rate }}</p>
                     <div [ngSwitch]="link.type">
                         <p *ngSwitchCase="'information'" class="glyphicon glyphicon-info-sign">
                         <p *ngSwitchCase="'fun'" class="glyphicon glyphicon-tower">
@@ -24,8 +24,7 @@ import { Component, Input } from '@angular/core';
         </div>
     `,
     styles: [`
-        .usefulLink { min-height: 200px; }
-        .green { color: #003300 !important; }
+        .usefulLink { min-height: 200px;}
     `]
 })
 export class UsefulLinkComponent {
