@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UsefulLinksService } from './../shared/useful-links.service';
 
 @Component({
@@ -11,9 +11,12 @@ import { UsefulLinksService } from './../shared/useful-links.service';
         </div>
     `
 })
-export class UsefulLinksComponent {
+export class UsefulLinksComponent implements OnInit{
     usefulLinks: any[];
-    constructor(private usefulLinksService: UsefulLinksService) { 
-        this.usefulLinks = usefulLinksService.getUsefulLinks();
+
+    constructor(private usefulLinksService: UsefulLinksService) { }
+
+    ngOnInit() {
+        this.usefulLinks = this.usefulLinksService.getUsefulLinks();
     }
 }
