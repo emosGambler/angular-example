@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UsefulLinksService } from './../shared/useful-links.service';
+import * as toastr from 'toastr';
 
 @Component({
     selector: 'useful-links',
@@ -18,5 +19,6 @@ export class UsefulLinksComponent implements OnInit{
 
     ngOnInit() {
         this.usefulLinks = this.usefulLinksService.getUsefulLinks();
+        toastr.success('lol!');
     }
 }
