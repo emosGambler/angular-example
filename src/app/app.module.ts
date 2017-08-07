@@ -6,11 +6,16 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
+import { UsefulLinkComponent } from './useful-links/useful-link.component';
+import { UsefulLinksComponent } from './useful-links/useful-links.component';
+import { UsefulLinksService } from './shared/useful-links.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent
+    FormComponent,
+    UsefulLinkComponent,
+    UsefulLinksComponent,
   ],
   imports: [
     AlertModule.forRoot(),
@@ -18,7 +23,9 @@ import { FormComponent } from './form/form.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    UsefulLinksService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
