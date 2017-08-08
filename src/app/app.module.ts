@@ -10,6 +10,7 @@ import { AboutComponent } from './about/about.component';
 import { CommentComponent } from './comment/comment.component';
 import { CommentsComponent } from './comment/comments.component';
 import { CommentsService } from './shared/comments.service';
+import { DetailedCommentComponent } from './comment/detailed-comment.component';
 import { Helper } from './shared/helper';
 import { routes } from './routes';
 
@@ -18,7 +19,8 @@ import { routes } from './routes';
     AboutComponent,
     AppComponent,
     CommentComponent,
-    CommentsComponent
+    CommentsComponent,
+    DetailedCommentComponent
   ],
   imports: [
     AlertModule.forRoot(),

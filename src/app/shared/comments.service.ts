@@ -8,7 +8,6 @@ export class CommentsService {
     getComment(id: number) {
         return COMMENTS.find(comment => comment.id === id);
     }
-
 }
 
 const COMMENTS = [

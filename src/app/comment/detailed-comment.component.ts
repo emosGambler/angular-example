@@ -1,16 +1,15 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommentsService } from './../shared/comments.service';
 import { Helper } from './../shared/helper';
 
 @Component({
-    selector: 'comment',
-    templateUrl: './comment.component.html',
+    templateUrl: './detailed-comment.component.html',
     styles: [`
         .comment { min-height: 200px;}
     `]
 })
-export class CommentComponent {
+export class DetailedCommentComponent implements OnInit{
     @Input() private comment: any;
     private shouldHideUrl: boolean = false;
 
@@ -19,6 +18,11 @@ export class CommentComponent {
         private route: ActivatedRoute
     ) { }
 
+    ngOnInit() {
+        this.comment = this.commentsService.getComment(
+            +this.route.snapshot.params['id']
+        );
+    }
     showHideUrl() {
         this.shouldHideUrl = !this.shouldHideUrl;
         this.helper.showHideUrl(this.shouldHideUrl);
