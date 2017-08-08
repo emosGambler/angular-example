@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    templateUrl: './form.component.html'
+    templateUrl: './about.component.html'
 })
-export class FormComponent {
+export class AboutComponent {
     
     constructor() {}
     private isShown = false;
