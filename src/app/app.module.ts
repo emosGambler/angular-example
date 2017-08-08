@@ -12,15 +12,13 @@ import { CommentsComponent } from './comment/comments.component';
 import { CommentsService } from './shared/comments.service';
 import { Helper } from './shared/helper';
 import { routes } from './routes';
-import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
     AboutComponent,
     AppComponent,
     CommentComponent,
-    CommentsComponent,
-    TestComponent
+    CommentsComponent
   ],
   imports: [
     AlertModule.forRoot(),
