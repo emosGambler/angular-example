@@ -1,6 +1,6 @@
  <div class="panel usefulLink">
     <div class="panel panel-info">
-        <div class="panel-heading">{{ link.name }}</div>
+        <div [routerLink]="['/test', link.id]"class="panel-heading">{{ link.name }}</div>
         <div class="panel-body">
             <p>{{ link.description }}</p>
             <p [hidden]="shouldHideUrl">{{ link.url }}

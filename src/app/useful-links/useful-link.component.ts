@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import * as toastr from 'toastr';
+import { Helper } from './../shared/helper';
 
 @Component({
     selector: 'useful-link',
@@ -12,14 +12,10 @@ export class UsefulLinkComponent {
     @Input() private link: any;
     private shouldHideUrl: boolean = false;
 
-    constructor() { }
+    constructor(private helper: Helper) { }
 
     showHideUrl() {
-        if (this.shouldHideUrl) {
-            toastr.info('Url shown');
-        } else {
-            toastr.info('Url hidden');
-        }
         this.shouldHideUrl = !this.shouldHideUrl;
+        this.helper.showHideUrl(this.shouldHideUrl);
     }
 }

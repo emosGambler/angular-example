@@ -12,6 +12,7 @@ import { TestComponent } from './test/test.component';
 import { UsefulLinkComponent } from './useful-links/useful-link.component';
 import { UsefulLinksComponent } from './useful-links/useful-links.component';
 import { UsefulLinksService } from './shared/useful-links.service';
+import { Helper } from './shared/helper';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UsefulLinksService } from './shared/useful-links.service';
     RouterModule.forRoot(routes)
   ],
   providers: [
-    UsefulLinksService
+    UsefulLinksService,
+    Helper
   ],
   bootstrap: [AppComponent]
 })
