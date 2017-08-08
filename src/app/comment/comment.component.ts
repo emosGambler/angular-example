@@ -2,14 +2,14 @@ import { Component, Input } from '@angular/core';
 import { Helper } from './../shared/helper';
 
 @Component({
-    selector: 'useful-link',
-    templateUrl: './useful-link.component.html',
+    selector: 'comment',
+    templateUrl: './comment.component.html',
     styles: [`
-        .usefulLink { min-height: 200px;}
+        .comment { min-height: 200px;}
     `]
 })
-export class UsefulLinkComponent {
-    @Input() private link: any;
+export class CommentComponent {
+    @Input() private comment: any;
     private shouldHideUrl: boolean = false;
 
     constructor(private helper: Helper) { }

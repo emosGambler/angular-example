@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class UsefulLinksService {
-    getUsefulLinks() {
-        return LINKS;
+export class CommentsService {
+    getComments() {
+        return COMMENTS;
     }
-    getUsefulLink(id: number) {
-        return LINKS.find(link => link.id === id);
+    getComment(id: number) {
+        return COMMENTS.find(comment => comment.id === id);
     }
 
 }
 
-const LINKS = [
+const COMMENTS = [
     {
         id: 0,
         name: 'Google',

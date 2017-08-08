@@ -7,20 +7,20 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentsComponent } from './comment/comments.component';
+import { CommentsService } from './shared/comments.service';
+import { Helper } from './shared/helper';
 import { routes } from './routes';
 import { TestComponent } from './test/test.component';
-import { UsefulLinkComponent } from './useful-links/useful-link.component';
-import { UsefulLinksComponent } from './useful-links/useful-links.component';
-import { UsefulLinksService } from './shared/useful-links.service';
-import { Helper } from './shared/helper';
 
 @NgModule({
   declarations: [
     AboutComponent,
     AppComponent,
-    TestComponent,
-    UsefulLinkComponent,
-    UsefulLinksComponent,
+    CommentComponent,
+    CommentsComponent,
+    TestComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -30,7 +30,7 @@ import { Helper } from './shared/helper';
     RouterModule.forRoot(routes)
   ],
   providers: [
-    UsefulLinksService,
+    CommentsService,
     Helper
   ],
   bootstrap: [AppComponent]
