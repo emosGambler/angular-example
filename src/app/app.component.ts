@@ -8,6 +8,7 @@ import * as toastr from 'toastr';
 })
 export class AppComponent implements OnInit {
   title = 'Angular test application';
+  
   ngOnInit() {
     toastr.success('Successfully launched testing app');
   }

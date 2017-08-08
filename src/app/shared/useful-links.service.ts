@@ -5,6 +5,9 @@ export class UsefulLinksService {
     getUsefulLinks() {
         return LINKS;
     }
+    getUsefulLink(id: number) {
+        return LINKS.find(link => link.id === id);
+    }
 
 }
 
