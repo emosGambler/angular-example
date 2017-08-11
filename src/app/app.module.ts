@@ -10,7 +10,9 @@ import { AboutComponent } from './about/about.component';
 import { CommentComponent } from './comment/comment.component';
 import { CommentsComponent } from './comment/comments.component';
 import { CommentsService } from './shared/comments.service';
+import { CommentRouteActivator } from './comment/comment-route-activator.service';
 import { DetailedCommentComponent } from './comment/detailed-comment.component';
+import { Error404Component } from './error/404.component';
 import { NewCommentComponent } from './shared/new-comment.component';
 import { Helper } from './shared/helper';
 import { routes } from './routes';
@@ -22,6 +24,7 @@ import { routes } from './routes';
     CommentComponent,
     CommentsComponent,
     DetailedCommentComponent,
+    Error404Component,
     NewCommentComponent
   ],
   imports: [
@@ -33,6 +36,7 @@ import { routes } from './routes';
   ],
   providers: [
     CommentsService,
+    CommentRouteActivator,
     Helper
   ],
   bootstrap: [AppComponent]
