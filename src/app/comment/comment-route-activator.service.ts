@@ -9,9 +9,9 @@ export class CommentRouteActivator implements CanActivate{
     ) { }
 
     canActivate(route: ActivatedRouteSnapshot) {
-        const isCommentIdValid = Boolean(this.commentsService.getComment(route.params['id']));
+        const isCommentIdValid = !!this.commentsService.getComment(+route.params['id']);
 
-        if (isCommentIdValid) {
+        if (!isCommentIdValid) {
             this.router.navigate(['/404']);
         }
 
