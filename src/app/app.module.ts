@@ -16,6 +16,7 @@ import { Error404Component } from './error/404.component';
 import { NewCommentComponent } from './shared/new-comment.component';
 import { Helper } from './shared/helper';
 import { routes } from './routes';
+import {CommentResolver} from "./comment/comment.resolver";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { routes } from './routes';
   providers: [
     CommentsService,
     CommentRouteActivator,
-    Helper
+    Helper,
+    CommentResolver
   ],
   bootstrap: [AppComponent]
 })

@@ -15,6 +15,6 @@ export class CommentRouteActivator implements CanActivate{
             this.router.navigate(['/404']);
         }
 
-        return !isCommentIdValid;
+        return isCommentIdValid;
     }
 }
