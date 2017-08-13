@@ -15,8 +15,10 @@ import { Router } from '@angular/router';
     `
 })
 export class NewCommentComponent {
-
+    isDirty: boolean = true;
+    
     constructor(private router: Router) { }
+
     cancel() {
         this.router.navigate(['/comments'])
     }

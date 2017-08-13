@@ -10,7 +10,7 @@ import {CommentResolver} from "./comment/comment.resolver";
 export const routes: Routes = [
     { path: 'comments', component: CommentsComponent },
     { path: 'about', component: AboutComponent },
-    { path: 'comment/new', component: NewCommentComponent },
+    { path: 'comment/new', component: NewCommentComponent, canDeactivate: ['canDeactivateNewComment()'] },
     { path: 'comment/:id', component: DetailedCommentComponent, resolve: {comment: CommentResolver}, canActivate: [CommentRouteActivator] },
     { path: '404', component: Error404Component },
     { path: '', redirectTo: '/about', pathMatch: 'full' }
