@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/RX';
 
 @Injectable()
 export class CommentsService {
     getComments() {
-        return COMMENTS;
+        let subject = new Subject();
+        setTimeout(() => {
+            subject.next(COMMENTS);
+            subject.complete();
+        }, 100)
+        return subject;
     }
     getComment(id: number) {
         return COMMENTS.find(comment => comment.id === id);

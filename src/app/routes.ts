@@ -5,10 +5,11 @@ import { DetailedCommentComponent } from './comment/detailed-comment.component';
 import { Error404Component } from './error/404.component';
 import { NewCommentComponent } from './shared/new-comment.component';
 import { Routes } from '@angular/router';
-import {CommentResolver} from "./comment/comment.resolver";
+import { CommentResolver } from './comment/comment.resolver';
+import { CommentsResolver } from './comment/comments.resolver';
 
 export const routes: Routes = [
-    { path: 'comments', component: CommentsComponent },
+    { path: 'comments', component: CommentsComponent, resolve: { comments: CommentsResolver } },
     { path: 'about', component: AboutComponent },
     { path: 'comment/new', component: NewCommentComponent, canDeactivate: ['canDeactivateNewComment()'] },
     { path: 'comment/:id', component: DetailedCommentComponent, resolve: {comment: CommentResolver}, canActivate: [CommentRouteActivator] },

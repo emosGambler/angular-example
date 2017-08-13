@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { CommentsService } from './../shared/comments.service';
 
@@ -11,11 +12,13 @@ import { CommentsService } from './../shared/comments.service';
     `
 })
 export class CommentsComponent implements OnInit{
-    comments: any[];
+    comments: any;
 
-    constructor(private commentsService: CommentsService) { }
+    constructor(private commentsService: CommentsService,
+        private route: ActivatedRoute
+    ) { }
 
     ngOnInit() {
-        this.comments = this.commentsService.getComments();
+        this.comments = this.route.snapshot.data['comments'];
     }
 }
