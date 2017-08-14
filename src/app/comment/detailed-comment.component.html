@@ -1,0 +1,20 @@
+<div class="panel comment">
+    <div class="panel panel-info">
+        <div class="panel-heading">{{ comment.name }}</div>
+        <div class="panel-body">
+            <p>{{ comment.description }}</p>
+            <p [hidden]="shouldHideUrl">{{ comment.url }}
+                <a class="btn btn-info" (click)="showHideUrl()">Hide</a>
+            </p>
+            <p [hidden]="!shouldHideUrl"> <a class="btn btn-success" (click)="showHideUrl()">Show</a></p>
+            <p [style.color]="comment.rate > 8.0 ? '#228b22': '#bbb'" *ngIf="comment.rate">Rate: {{ comment.rate }}</p>
+            <div [ngSwitch]="comment.type">
+                <p *ngSwitchCase="'information'" class="glyphicon glyphicon-info-sign">
+                <p *ngSwitchCase="'fun'" class="glyphicon glyphicon-tower">
+                <p *ngSwitchCase="'programming'" class="glyphicon glyphicon-arrow-right">
+                <p *ngSwitchCase="'other'">
+            </div>
+        </div>
+        <a routerLink="/comments" class="btn btn-info">Back to comments</a>
+    </div>
+</div>

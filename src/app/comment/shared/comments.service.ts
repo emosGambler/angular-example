@@ -1,14 +1,22 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/RX';
 
 @Injectable()
-export class UsefulLinksService {
-    getUsefulLinks() {
-        return LINKS;
+export class CommentsService {
+    getComments() {
+        let subject = new Subject();
+        setTimeout(() => {
+            subject.next(COMMENTS);
+            subject.complete();
+        }, 100)
+        return subject;
     }
-
+    getComment(id: number) {
+        return COMMENTS.find(comment => comment.id === id);
+    }
 }
 
-const LINKS = [
+const COMMENTS = [
     {
         id: 0,
         name: 'Google',

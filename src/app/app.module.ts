@@ -3,28 +3,57 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
+import { 
+  CommentComponent,
+  CommentResolver,
+  CommentsComponent,
+  CommentsResolver,
+  CommentsService,
+  CommentRouteActivator,
+  DetailedCommentComponent,
+  NewCommentComponent
+} from './comment/index'
 
 import { AppComponent } from './app.component';
-import { FormComponent } from './form/form.component';
-import { UsefulLinkComponent } from './useful-links/useful-link.component';
-import { UsefulLinksComponent } from './useful-links/useful-links.component';
-import { UsefulLinksService } from './shared/useful-links.service';
+import { AboutComponent } from './about/about.component';
+import { Error404Component } from './error/404.component';
+import { Helper } from './shared/helper';
+import { routes } from './routes';
 
 @NgModule({
   declarations: [
+    AboutComponent,
     AppComponent,
-    FormComponent,
-    UsefulLinkComponent,
-    UsefulLinksComponent,
+    CommentComponent,
+    CommentsComponent,
+    DetailedCommentComponent,
+    Error404Component,
+    NewCommentComponent
   ],
   imports: [
     AlertModule.forRoot(),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
-    UsefulLinksService
+    CommentsService,
+    CommentRouteActivator,
+    Helper,
+    CommentResolver,
+    CommentsResolver,
+    { 
+      provide: 'canDeactivateNewComment()', 
+      useValue: (component: NewCommentComponent) => {
+        if (component.isDirty) {
+          return window.confirm('You have unsaved changes. Do you want to leave this page?');
+        }
+        return true;
+      } 
+    }
   ],
   bootstrap: [AppComponent]
 })

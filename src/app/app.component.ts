@@ -7,7 +7,8 @@ import * as toastr from 'toastr';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Angular test application!';
+  title = 'Angular test application';
+  
   ngOnInit() {
     toastr.success('Successfully launched testing app');
   }
