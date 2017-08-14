@@ -5,17 +5,20 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import { 
+  CommentComponent,
+  CommentResolver,
+  CommentsComponent,
+  CommentsResolver,
+  CommentsService,
+  CommentRouteActivator,
+  DetailedCommentComponent,
+  NewCommentComponent
+} from './comment/index'
+
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
-import { CommentComponent } from './comment/comment.component';
-import { CommentResolver } from './comment/comment.resolver';
-import { CommentsComponent } from './comment/comments.component';
-import { CommentsResolver } from './comment/comments.resolver';
-import { CommentsService } from './comment/shared/comments.service';
-import { CommentRouteActivator } from './comment/comment-route-activator.service';
-import { DetailedCommentComponent } from './comment/detailed-comment.component';
 import { Error404Component } from './error/404.component';
-import { NewCommentComponent } from './comment/shared/new-comment.component';
 import { Helper } from './shared/helper';
 import { routes } from './routes';
 
