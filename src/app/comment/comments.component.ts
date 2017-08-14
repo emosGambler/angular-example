@@ -4,6 +4,8 @@ import { CommentsService } from './../shared/comments.service';
 
 @Component({
     template: `
+        <h2>Comments</h2>
+        <hr>
         <div class="row">
             <div *ngFor="let comment of comments" class="col-md-6">
                 <comment [comment]="comment"></comment>

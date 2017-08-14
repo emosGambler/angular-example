@@ -14,5 +14,6 @@ export const routes: Routes = [
     { path: 'comment/new', component: NewCommentComponent, canDeactivate: ['canDeactivateNewComment()'] },
     { path: 'comment/:id', component: DetailedCommentComponent, resolve: {comment: CommentResolver}, canActivate: [CommentRouteActivator] },
     { path: '404', component: Error404Component },
-    { path: '', redirectTo: '/about', pathMatch: 'full' }
+    { path: '', redirectTo: '/about', pathMatch: 'full' },
+    { path: 'user', loadChildren: 'app/user/user.module#UserModule' }
 ]
