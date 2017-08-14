@@ -1,6 +1,6 @@
 import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { CommentsService } from './../shared/comments.service';
+import { CommentsService } from './shared/comments.service';
 
 @Injectable()
 export class CommentRouteActivator implements CanActivate{

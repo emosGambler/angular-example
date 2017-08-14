@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
-import { CommentsService } from './../shared/comments.service';
+import { CommentsService } from './shared/comments.service';
 
 @Component({
     template: `

@@ -3,7 +3,7 @@ import { CommentsComponent } from './comment/comments.component';
 import { CommentRouteActivator } from './comment/comment-route-activator.service';
 import { DetailedCommentComponent } from './comment/detailed-comment.component';
 import { Error404Component } from './error/404.component';
-import { NewCommentComponent } from './shared/new-comment.component';
+import { NewCommentComponent } from './comment/shared/new-comment.component';
 import { Routes } from '@angular/router';
 import { CommentResolver } from './comment/comment.resolver';
 import { CommentsResolver } from './comment/comments.resolver';
