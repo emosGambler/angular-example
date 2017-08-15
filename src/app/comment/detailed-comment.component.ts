@@ -2,6 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { CommentsService } from './shared/comments.service';
 import { Helper } from './../shared/helper';
+import { IComment } from './shared/comment.model';
 
 @Component({
     templateUrl: './detailed-comment.component.html',
@@ -10,7 +11,7 @@ import { Helper } from './../shared/helper';
     `]
 })
 export class DetailedCommentComponent implements OnInit{
-    private comment: any;
+    private comment: IComment;
     private shouldHideUrl: boolean = false;
 
     constructor(private helper: Helper,

@@ -5,4 +5,5 @@ export * from './comments.component';
 export * from './comments.resolver';
 export * from './detailed-comment.component';
 export * from './shared/new-comment.component';
+export * from './shared/comment.model';
 export * from './shared/comments.service';

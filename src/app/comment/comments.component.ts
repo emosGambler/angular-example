@@ -1,6 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { CommentsService } from './shared/comments.service';
+import { IComment } from './shared/comment.model';
 
 @Component({
     template: `
@@ -14,7 +15,7 @@ import { CommentsService } from './shared/comments.service';
     `
 })
 export class CommentsComponent implements OnInit{
-    comments: any;
+    comments: IComment[];
 
     constructor(private commentsService: CommentsService,
         private route: ActivatedRoute

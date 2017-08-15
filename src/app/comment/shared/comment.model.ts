@@ -1,0 +1,19 @@
+export interface IComment {
+    id: number,
+    name: string,
+    description: string,
+    url: string,
+    type: string,
+    rate?: number,
+    sessions: ISession[]
+}
+
+export interface ISession {
+    id: number,
+    name: string,
+    presenter: string,
+    duration: number,
+    level: string,
+    abstract: string,
+    voters: string[]
+}

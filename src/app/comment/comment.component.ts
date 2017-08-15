@@ -2,6 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, Input } from '@angular/core';
 import { CommentsService } from './shared/comments.service';
 import { Helper } from './../shared/helper';
+import { IComment } from './shared/comment.model';
 
 @Component({
     selector: 'comment',
@@ -11,7 +12,7 @@ import { Helper } from './../shared/helper';
     `]
 })
 export class CommentComponent {
-    @Input() private comment: any;
+    @Input() private comment: IComment;
     private shouldHideUrl: boolean = false;
 
     constructor(private helper: Helper,
