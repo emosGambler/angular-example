@@ -16,9 +16,10 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
     { path: 'comments', component: CommentsComponent, resolve: { comments: CommentsResolver } },
     { path: 'about', component: AboutComponent },
-    { path: 'comment/new', component: NewCommentComponent, canDeactivate: ['canDeactivateNewComment()'] },
+    { path: 'comment/new', component: NewCommentComponent, canDeactivate: ['canDeactivateNewComment'] },
     { path: 'comment/:id', component: DetailedCommentComponent, resolve: {comment: CommentResolver}, canActivate: [CommentRouteActivator] },
     { path: '404', component: Error404Component },
     { path: '', redirectTo: '/about', pathMatch: 'full' },
-    { path: 'user', loadChildren: 'app/user/user.module#UserModule' }
+    { path: 'user', loadChildren: 'app/user/user.module#UserModule' },
+    { path: '**', redirectTo: '/404' }
 ]
