@@ -46,15 +46,17 @@ import { routes } from './routes';
     CommentResolver,
     CommentsResolver,
     { 
-      provide: 'canDeactivateNewComment()', 
-      useValue: (component: NewCommentComponent) => {
-        if (component.isDirty) {
-          return window.confirm('You have unsaved changes. Do you want to leave this page?');
-        }
-        return true;
-      } 
+      provide: 'canDeactivateNewComment', 
+      useValue: checkDirtyState
     }
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+function checkDirtyState(component: NewCommentComponent) {
+  if (component.isDirty) {
+    return window.confirm('You have unsaved changes. Do you want to leave this page?');
+  }
+  return true;
+} 
