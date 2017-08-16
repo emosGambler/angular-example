@@ -8,13 +8,15 @@ export class AboutComponent {
     constructor() {}
     private isShown = false;
     private buttonText = "Show";
+    //TODO: read from currentUser
     private authorsData = {
-        name: 'Jacek Goraj',
-        birthDate: '21/03/1993',
+        firstName: 'Jacek',
+        lastName: 'Góraj',
+        birthDate: new Date(1993, 3, 21),
         location: {
-        planet: 'Earth',
-        country: 'Poland',
-        city: 'Poznan'
+            planet: 'Earth',
+            country: 'Poland',
+            city: 'Poznan'
         }
     }
     showHideData() {

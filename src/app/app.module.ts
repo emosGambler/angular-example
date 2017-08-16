@@ -16,6 +16,7 @@ import {
   NewCommentComponent
 } from './comment/index'
 
+import { AuthService } from './user/auth.service';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { Error404Component } from './error/404.component';
@@ -40,6 +41,7 @@ import { routes } from './routes';
     RouterModule.forRoot(routes)
   ],
   providers: [
+    AuthService,
     CommentsService,
     CommentRouteActivator,
     Helper,

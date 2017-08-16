@@ -1,14 +1,21 @@
 <nav class="navbar navbar-dark bg-inverse">
     <div class="container">
         <a routerLink="about" class="navbar-brand">{{ title }}</a>
-        <ul class="nav navbar-nav">
-            <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="about">About author</a></li>
-            <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="comments">Comments</a></li>
-            <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="comment/new">New comment</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="user/profile">Jacek Góraj</a></li>
-        </ul>
+        <div>
+            <ul class="nav navbar-nav">
+                <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="about">About author</a></li>
+                <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="comments">Comments</a></li>
+                <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="comment/new">New comment</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <a *ngIf="!authService.isAuthenticated(); else loggedIn" routerLink="user/login">Login</a>
+                <ng-template #loggedIn>
+                    <li routerLinkActive="active" class="nav-item">
+                        <a class="nav-link" routerLink="user/profile">Welcome {{ authService.currentUser.firstName }}!</a>
+                    </li>
+                </ng-template>
+            </ul>
+        </div>
     </div>
 </nav>
 <router-outlet></router-outlet>
