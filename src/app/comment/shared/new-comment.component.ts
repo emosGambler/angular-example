@@ -1,25 +1,32 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommentsService } from './comments.service';
 
 @Component({
-    template: `
-        <h2>New comment</h2>
-        <hr>
-        <div class="col-md-6">
-            <h3>[Create new comment will go here]</h3>
-            <br/>
-            <br/>
-            <button type="submit" class="btn btn-primary">Save</button>
-            <button type="cancel" class="btn btn-default" (click)="cancel()">Cancel</button>
-        </div>
-    `
+    templateUrl: './new-comment.component.html',
+    styles: [`
+        .error input {
+            background-color: #cc0000;
+        }
+        em {
+            color: red;
+        }
+    `]
 })
 export class NewCommentComponent {
     isDirty: boolean = true;
     
-    constructor(private router: Router) { }
+    constructor(private commentService: CommentsService,
+        private router: Router
+    ) { }
 
     cancel() {
-        this.router.navigate(['/comments'])
+        this.router.navigate(['/comments']);
+    }
+
+    saveComment(formValues) {
+        this.commentService.saveComment(formValues);
+        this.isDirty = false;
+        this.router.navigate(['/comments']);
     }
 }

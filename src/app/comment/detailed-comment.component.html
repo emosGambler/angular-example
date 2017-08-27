@@ -14,6 +14,7 @@
                 <p *ngSwitchCase="'programming'" class="glyphicon glyphicon-arrow-right">
                 <p *ngSwitchCase="'other'">
             </div>
+            <img width="350px" [src]="comment.url" *ngIf="comment.url"/>
         </div>
         <a routerLink="/comments" class="btn btn-info">Back to comments</a>
     </div>

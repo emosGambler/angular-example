@@ -1,0 +1,29 @@
+<h1>New Comment</h1>
+<hr>
+<div class="col-md-6">
+  <form #newCommentForm="ngForm" (ngSubmit)="saveComment(newCommentForm.value)" autocomplete="off" novalidate>
+    <div class="form-group" [ngClass]="{'error': newCommentForm.controls.name?.invalid && newCommentForm.controls.name?.touched}">
+      <label for="commentTitle">Comment name:</label>
+      <em *ngIf="newCommentForm.controls.name?.invalid && (newCommentForm.controls.name?.touched)">Required</em>
+      <input (ngModel)="name" name="name" required id="name" type="text" class="form-control" placeholder="Title of your comment..." />
+    </div>
+    <div class="form-group" [ngClass]="{'error': newCommentForm.controls.description?.invalid && newCommentForm.controls.description?.touched}">
+      <label for="commentText">Comment text:</label>
+      <em *ngIf="newCommentForm.controls.description?.invalid && (newCommentForm.controls.description?.touched)">Required</em>
+      <input (ngModel)="description" name="description" required id="description" type="text" class="form-control" placeholder="Text of your comment..." />
+    </div>
+    <div class="form-group" [ngClass]="{'error': newCommentForm.controls.rate?.invalid && newCommentForm.controls.rate?.touched}">
+      <label for="rate">Comment rate:</label>
+      <input (ngModel)="rate" name="rate" id="rate" type="text" type="number" class="form-control" placeholder="Comment rate..." />
+    </div>
+    <div class="form-group" [ngClass]="{'error': newCommentForm.controls.url?.invalid && newCommentForm.controls.url?.touched}">
+      <label for="url">Image:</label>
+      <em *ngIf="newCommentForm.controls.url?.invalid && newCommentForm.controls.url?.touched && newCommentForm.controls.url?.errors.required">Required</em>
+      <em *ngIf="newCommentForm.controls.url?.invalid && newCommentForm.controls.url?.touched  && newCommentForm.controls.url?.errors.pattern">Must be a png or jpg url</em>
+      <input (ngModel)="url" name="url" required pattern=".*\/.*.(png|jpg)" id="url" type="text" class="form-control" placeholder="url of image..." />
+      <img width="350px" [src]="newCommentForm.controls.url.value" *ngIf="newCommentForm.controls.url?.valid"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" [disabled]="newCommentForm.invalid" class="btn btn-default" (click)="cancel()">Cancel</button>
+  </form>
+</div>

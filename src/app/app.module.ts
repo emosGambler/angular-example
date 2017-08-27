@@ -1,6 +1,6 @@
 import { AlertModule } from 'ngx-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -38,6 +38,7 @@ import { routes } from './routes';
     BrowserModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
@@ -49,15 +50,16 @@ import { routes } from './routes';
     CommentsResolver,
     { 
       provide: 'canDeactivateNewComment', 
-      useValue: ((component: NewCommentComponent) => {
-        if (component.isDirty) {
-          return window.confirm('You have unsaved changes. Do you want to leave this page?');
-        }
-          return true;
-        }
-      )
+      useValue: checkDirtyState
     }
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+function checkDirtyState(component: NewCommentComponent) {
+  if (component.isDirty) {
+    return window.confirm('You have unsaved changes. Do you want to leave this page?');
+  }
+    return true;
+}

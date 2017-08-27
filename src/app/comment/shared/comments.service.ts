@@ -4,6 +4,7 @@ import { Observable, Subject } from 'rxjs/RX';
 
 @Injectable()
 export class CommentsService {
+    
     getComments(): Observable<IComment[]> {
         let subject = new Subject<IComment[]>();
         setTimeout(() => {
@@ -12,8 +13,15 @@ export class CommentsService {
         }, 100)
         return subject;
     }
+    
     getComment(id: number): IComment {
         return COMMENTS.find(comment => comment.id === id);
+    }
+
+    saveComment(comment) {
+      comment.id = 999;
+      comment.sessions = [];
+      COMMENTS.push(comment);
     }
 }
 
