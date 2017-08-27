@@ -3,7 +3,12 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-    templateUrl: './login.component.html'
+    templateUrl: './login.component.html',
+    styles: [`
+      em {
+          color: Red;
+      }  
+    `]
 })
 export class LoginComponent {
     constructor(private authService: AuthService,
