@@ -8,12 +8,12 @@
                 <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="comment/new">New comment</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <a *ngIf="!authService.isAuthenticated(); else loggedIn" routerLink="user/login">Login</a>
-                <ng-template #loggedIn>
-                    <li routerLinkActive="active" class="nav-item">
+                <li routerLinkActive="active" class="nav-item">
+                    <a *ngIf="!authService.isAuthenticated(); else loggedIn" routerLink="user/login">Login</a>
+                    <ng-template #loggedIn>
                         <a class="nav-link" routerLink="user/profile">Welcome {{ authService.currentUser.firstName }}!</a>
-                    </li>
-                </ng-template>
+                    </ng-template>
+                </li>
             </ul>
         </div>
     </div>

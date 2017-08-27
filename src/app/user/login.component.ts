@@ -7,7 +7,11 @@ import { Router } from '@angular/router';
     styles: [`
       em {
           color: Red;
-      }  
+          float: right;
+      }
+      .error input {
+            background-color: #cc0000;
+        }
     `]
 })
 export class LoginComponent {
