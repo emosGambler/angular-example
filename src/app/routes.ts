@@ -12,8 +12,10 @@ import {
 import { AboutComponent } from './about/about.component';
 import { Error404Component } from './error/404.component';
 import { Routes } from '@angular/router';
+import { NewSessionComponent } from './session/new-session.component';
 
 export const routes: Routes = [
+    { path: 'session/new', component: NewSessionComponent },
     { path: 'comments', component: CommentsComponent, resolve: { comments: CommentsResolver } },
     { path: 'about', component: AboutComponent },
     { path: 'comment/new', component: NewCommentComponent, canDeactivate: ['canDeactivateNewComment'] },
