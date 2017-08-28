@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ISession } from './../comment/shared/comment.model';
+import { restrictedWords } from './../shared/restricted-words.validator';
 
 @Component({
     templateUrl: './new-session.component.html',
@@ -23,7 +24,8 @@ export class NewSessionComponent implements OnInit {
 
     ngOnInit() {
         this.abstract = new FormControl('', [Validators.required,
-            Validators.maxLength(400)]);
+            Validators.maxLength(400),
+            restrictedWords(['spam', 'ass'])]);
         this.duration = new FormControl('', Validators.required);
         this.level = new FormControl('', Validators.required);
         this.name = new FormControl('', Validators.required);
