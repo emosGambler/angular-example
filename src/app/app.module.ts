@@ -57,7 +57,7 @@ import { routes } from './routes';
 })
 export class AppModule { }
 
-function checkDirtyState(component: NewCommentComponent) {
+export function checkDirtyState(component: NewCommentComponent) {
   if (component.isDirty) {
     return window.confirm('You have unsaved changes. Do you want to leave this page?');
   }
