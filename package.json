@@ -55,8 +55,5 @@
   "bugs": {
     "url": "https://github.com/emosGambler/goraj-angular-test-application/issues"
   },
-  "homepage": "https://github.com/emosGambler/goraj-angular-test-application#readme",
-  "devDependencies": {
-    "webpack": "^3.5.5"
-  }
+  "homepage": "https://github.com/emosGambler/goraj-angular-test-application#readme"
 }
