@@ -22,6 +22,8 @@ import { AboutComponent } from './about/about.component';
 import { Error404Component } from './error/404.component';
 import { Helper } from './shared/helper';
 import { NewSessionComponent } from './session/new-session.component';
+import { SessionListComponent } from './session/session-list.component';
+
 import { routes } from './routes';
 
 @NgModule({
@@ -33,7 +35,8 @@ import { routes } from './routes';
     DetailedCommentComponent,
     Error404Component,
     NewCommentComponent,
-    NewSessionComponent
+    NewSessionComponent,
+    SessionListComponent
   ],
   imports: [
     AlertModule.forRoot(),
