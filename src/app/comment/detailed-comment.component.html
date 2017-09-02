@@ -19,5 +19,14 @@
         <a routerLink="/comments" class="btn btn-info">Back to comments</a>
     </div>
     <hr>
-    <session-list [sessions]="comment?.sessions"></session-list>
+    <div class="panel panel-info">
+        <div class="panel-heading">Sessions</div>
+        <div class="panel-body">
+            <div>
+                <a (click)="addSession()">Add session</a>
+            </div>
+            <session-list *ngIf="!addMode" [sessions]="comment?.sessions"></session-list>
+            <new-session *ngIf="addMode" (cancelAddSession)="cancelAddSession()" (saveNewSession)="saveNewSession($event)"></new-session>
+        </div>
+    </div>
 </div>

@@ -23,6 +23,11 @@ export class CommentsService {
       comment.sessions = [];
       COMMENTS.push(comment);
     }
+
+    updateComment(comment) {
+      let index = COMMENTS.findIndex(x => x.id = comment.id);
+      COMMENTS[index] = comment;
+    }
 }
 
 const COMMENTS: IComment[] = [
