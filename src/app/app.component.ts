@@ -1,3 +1,4 @@
+import { AuthService } from './user/auth.service';
 import { Component, Input, OnInit } from '@angular/core';
 import * as toastr from 'toastr';
 
@@ -7,7 +8,10 @@ import * as toastr from 'toastr';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Angular test application!';
+  constructor(private authService: AuthService) { };
+  
+  title = 'Angular test application';
+  
   ngOnInit() {
     toastr.success('Successfully launched testing app');
   }
