@@ -1,6 +1,6 @@
  <div class="panel comment">
     <div class="panel panel-info">
-        <div [routerLink]="['/comment', comment.id]"class="panel-heading">{{ comment.name }}</div>
+        <div [routerLink]="['/comment', comment.id]"class="panel-heading">{{ comment.name | uppercase }}</div>
         <div class="panel-body">
             <p>{{ comment.description }}</p>
             <p [style.color]="comment.rate > 8.0 ? '#228b22': '#bbb'" *ngIf="comment.rate">Rate: {{ comment.rate }}</p>

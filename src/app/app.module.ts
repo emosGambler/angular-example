@@ -13,6 +13,7 @@ import {
   CommentsService,
   CommentRouteActivator,
   DetailedCommentComponent,
+  DurationPipe,
   NewCommentComponent
 } from './comment/index'
 
@@ -35,6 +36,7 @@ import { routes } from './routes';
     CommentComponent,
     CommentsComponent,
     DetailedCommentComponent,
+    DurationPipe,
     Error404Component,
     NewCommentComponent,
     NewSessionComponent,

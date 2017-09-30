@@ -4,6 +4,7 @@ export * from './comment-route-activator.service';
 export * from './comments.component';
 export * from './comments.resolver';
 export * from './detailed-comment.component';
+export * from './shared/duration.pipe';
 export * from './shared/new-comment.component';
 export * from './shared/comment.model';
 export * from './shared/comments.service';

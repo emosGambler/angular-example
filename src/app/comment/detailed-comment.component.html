@@ -1,32 +1,44 @@
 <div class="panel comment">
-    <div class="panel panel-info">
-        <div class="panel-heading">{{ comment.name }}</div>
-        <div class="panel-body">
-            <p>{{ comment.description }}</p>
-            <p [hidden]="shouldHideUrl">{{ comment.url }}
-                <a class="btn btn-info" (click)="showHideUrl()">Hide</a>
-            </p>
-            <p [hidden]="!shouldHideUrl"> <a class="btn btn-success" (click)="showHideUrl()">Show</a></p>
-            <p [style.color]="comment.rate > 8.0 ? '#228b22': '#bbb'" *ngIf="comment.rate">Rate: {{ comment.rate }}</p>
-            <div [ngSwitch]="comment.type">
-                <p *ngSwitchCase="'information'" class="glyphicon glyphicon-info-sign">
-                <p *ngSwitchCase="'fun'" class="glyphicon glyphicon-tower">
-                <p *ngSwitchCase="'programming'" class="glyphicon glyphicon-arrow-right">
-                <p *ngSwitchCase="'other'">
+        <div class="panel panel-info">
+            <div class="panel-heading">{{ comment.name | uppercase }}</div>
+            <div class="panel-body">
+                <p>{{ comment.description }}</p>
+                <p [hidden]="shouldHideUrl">{{ comment.url }}
+                    <a class="btn btn-info" (click)="showHideUrl()">Hide</a>
+                </p>
+                <p [hidden]="!shouldHideUrl"> <a class="btn btn-success" (click)="showHideUrl()">Show</a></p>
+                <p [style.color]="comment.rate > 8.0 ? '#228b22': '#bbb'" *ngIf="comment.rate">Rate: {{ comment.rate }}</p>
+                <div [ngSwitch]="comment.type">
+                    <p *ngSwitchCase="'information'" class="glyphicon glyphicon-info-sign">
+                    <p *ngSwitchCase="'fun'" class="glyphicon glyphicon-tower">
+                    <p *ngSwitchCase="'programming'" class="glyphicon glyphicon-arrow-right">
+                    <p *ngSwitchCase="'other'">
+                </div>
+                <img width="350px" [src]="comment.url" *ngIf="comment.url"/>
             </div>
-            <img width="350px" [src]="comment.url" *ngIf="comment.url"/>
+            <a routerLink="/comments" class="btn btn-info">Back to comments</a>
         </div>
-        <a routerLink="/comments" class="btn btn-info">Back to comments</a>
-    </div>
-    <hr>
-    <div class="panel panel-info">
-        <div class="panel-heading">Sessions</div>
-        <div class="panel-body">
-            <div>
-                <a (click)="addSession()">Add session</a>
+        <hr>
+        <div class="panel panel-info">
+            <div class="panel-heading">Sessions</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="btn-group btn-group-sm">
+                        <button style="margin-right: 10px" class="btn btn-primary" (click)="addSession()">Add session</button>
+                        <button class="btn btn-default" [class.active]="filterBy==='all'" (click)="filterBy='all'">All</button>
+                        <button class="btn btn-default" [class.active]="filterBy==='beginner'" (click)="filterBy='beginner'">Beginner</button>
+                        <button class="btn btn-default" [class.active]="filterBy==='intermediate'" (click)="filterBy='intermediate'">Intermediate</button>
+                        <button class="btn btn-default" [class.active]="filterBy==='advanced'" (click)="filterBy='advanced'">Advanced</button>
+                    </div>
+                    <div style="margin-left: 30px" class="btn-group btn-group-sm">
+                        <button class="btn btn-default" [class.active]="sortBy==='name'" (click)="sortBy='name'">By Name</button>
+                        <button class="btn btn-default" [class.active]="sortBy==='votes'" (click)="sortBy='votes'">By Votes</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <session-list [sortBy]="sortBy" [filterBy]="filterBy" *ngIf="!addMode" [sessions]="comment?.sessions"></session-list>
+                    <new-session *ngIf="addMode" (cancelAddSession)="cancelAddSession()" (saveNewSession)="saveNewSession($event)"></new-session>
+                </div>
             </div>
-            <session-list *ngIf="!addMode" [sessions]="comment?.sessions"></session-list>
-            <new-session *ngIf="addMode" (cancelAddSession)="cancelAddSession()" (saveNewSession)="saveNewSession($event)"></new-session>
         </div>
     </div>
-</div>
