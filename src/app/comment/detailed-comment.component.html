@@ -22,10 +22,14 @@
     <div class="panel panel-info">
         <div class="panel-heading">Sessions</div>
         <div class="panel-body">
-            <div>
-                <a (click)="addSession()">Add session</a>
+            <div class="row">
+                <button class="btn btn-primary" (click)="addSession()">Add session</button>
+                <button class="btn btn-default" [class.active]="filterBy==='all'" (click)="filterBy='all'">All</button>
+                <button class="btn btn-default" [class.active]="filterBy==='beginner'" (click)="filterBy='beginner'">Beginner</button>
+                <button class="btn btn-default" [class.active]="filterBy==='intermediate'" (click)="filterBy='intermediate'">Intermediate</button>
+                <button class="btn btn-default" [class.active]="filterBy==='advanced'" (click)="filterBy='advanced'">Advanced</button>
             </div>
-            <session-list *ngIf="!addMode" [sessions]="comment?.sessions"></session-list>
+            <session-list [filterBy]="filterBy" *ngIf="!addMode" [sessions]="comment?.sessions"></session-list>
             <new-session *ngIf="addMode" (cancelAddSession)="cancelAddSession()" (saveNewSession)="saveNewSession($event)"></new-session>
         </div>
     </div>

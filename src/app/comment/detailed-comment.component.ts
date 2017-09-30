@@ -15,6 +15,7 @@ export class DetailedCommentComponent implements OnInit{
     private addMode: boolean;
     private comment: IComment;
     private shouldHideUrl: boolean = false;
+    private filterBy: string = 'all';
 
     constructor(private helper: Helper,
         private commentsService: CommentsService,
