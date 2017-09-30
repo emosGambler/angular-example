@@ -8,11 +8,15 @@ import { ISession } from './../comment/shared/comment.model';
 export class SessionListComponent implements OnChanges{
     @Input() filterBy: string;
     @Input() sessions: ISession[];
+    @Input() sortBy: string;
     private filteredSessions: ISession[];
 
     ngOnChanges() {
         if (this.sessions) {
             this.filterSessions(this.filterBy);
+            this.sortBy === 'name' ? 
+                this.filteredSessions.sort(sortByNameAscending) :
+                this.filteredSessions.sort(sortByVotesDescending)
         }
     }
 
@@ -26,4 +30,14 @@ export class SessionListComponent implements OnChanges{
             console.log('filteredSessions: ', this.filteredSessions)
         }
     }
+}
+
+function sortByNameAscending (s1: ISession, s2: ISession): number {
+    if (s1.name > s2.name) return 1;
+    if (s1.name === s2.name) return 0;
+    return -1;
+}
+
+function sortByVotesDescending (s1: ISession, s2: ISession): number {
+    return s2.voters.length - s1.voters.length;
 }
