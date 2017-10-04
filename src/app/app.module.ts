@@ -25,8 +25,11 @@ import { Error404Component } from './error/404.component';
 import { Helper } from './shared/helper';
 import { NewSessionComponent } from './session/new-session.component';
 import { SessionListComponent } from './session/session-list.component';
+import { TOASTR_TOKEN, Toastr } from './shared/toastr.service';
 
 import { routes } from './routes';
+
+declare let toastr: Toastr;
 
 @NgModule({
   declarations: [
@@ -60,6 +63,10 @@ import { routes } from './routes';
     { 
       provide: 'canDeactivateNewComment', 
       useValue: checkDirtyState
+    },
+    { 
+      provide: TOASTR_TOKEN, 
+      useValue: toastr
     }
   ],
   bootstrap: [AppComponent]
