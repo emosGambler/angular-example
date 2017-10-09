@@ -1,9 +1,11 @@
 import { AlertModule } from 'ngx-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 import { 
   CommentComponent,
@@ -25,11 +27,8 @@ import { Error404Component } from './error/404.component';
 import { Helper } from './shared/helper';
 import { NewSessionComponent } from './session/new-session.component';
 import { SessionListComponent } from './session/session-list.component';
-import { TOASTR_TOKEN, Toastr } from './shared/toastr.service';
 
 import { routes } from './routes';
-
-declare let toastr: Toastr;
 
 @NgModule({
   declarations: [
@@ -47,11 +46,13 @@ declare let toastr: Toastr;
   ],
   imports: [
     AlertModule.forRoot(),
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ToastModule.forRoot()  
   ],
   providers: [
     AuthService,
@@ -63,10 +64,6 @@ declare let toastr: Toastr;
     { 
       provide: 'canDeactivateNewComment', 
       useValue: checkDirtyState
-    },
-    { 
-      provide: TOASTR_TOKEN, 
-      useValue: toastr
     }
   ],
   bootstrap: [AppComponent]
