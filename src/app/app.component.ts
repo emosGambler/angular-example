@@ -1,6 +1,6 @@
 import { AuthService } from './user/auth.service';
-import { Component, Input, OnInit } from '@angular/core';
-import * as toastr from 'toastr';
+import { Component, Inject, Input, OnInit, ViewContainerRef } from '@angular/core';
+import { ToastsManager,  } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +8,17 @@ import * as toastr from 'toastr';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private authService: AuthService) { };
+  constructor(
+    private authService: AuthService,
+    private toastr: ToastsManager,
+    private vRef: ViewContainerRef
+  ) { 
+    this.toastr.setRootViewContainerRef(vRef);
+  }
   
   title = 'Angular test application';
   
   ngOnInit() {
-    toastr.success('Successfully launched testing app');
+    this.toastr.success('Successfully launched testing app');
   }
 }

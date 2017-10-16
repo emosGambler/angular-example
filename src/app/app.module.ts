@@ -1,9 +1,11 @@
 import { AlertModule } from 'ngx-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 import { 
   CommentComponent,
@@ -44,11 +46,13 @@ import { routes } from './routes';
   ],
   imports: [
     AlertModule.forRoot(),
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ToastModule.forRoot()  
   ],
   providers: [
     AuthService,

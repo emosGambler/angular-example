@@ -1,8 +1,8 @@
 import { AuthService } from './auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import * as toastr from 'toastr';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
     templateUrl: './profile.component.html',
@@ -21,8 +21,8 @@ export class ProfileComponent implements OnInit{
     profileForm: FormGroup;
 
     constructor(private authService: AuthService,
-        private router: Router
-    ) { };
+        private router: Router,
+        private toastr: ToastsManager) { };
 
     ngOnInit() {
         this.firstName = new FormControl(
@@ -48,8 +48,7 @@ export class ProfileComponent implements OnInit{
     saveProfile(formValues) {
         if (this.profileForm.valid) {
             this.authService.updateUser(formValues.firstName, formValues.lastName);
-            this.router.navigate(['comments']);
-            toastr.success('Successfuly updated user!');
+            this.toastr.success('Successfuly updated user!');
         };
     }
 
