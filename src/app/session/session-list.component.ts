@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { ISession } from './../comment/shared/comment.model';
+import { ISession } from './../session/session.model';
 
 @Component({
     selector: 'session-list',

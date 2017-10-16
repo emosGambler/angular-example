@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ISession } from './../comment/shared/comment.model';
+import { ISession } from './../session/session.model';
 import { restrictedWords } from './../shared/restricted-words.validator';
 
 @Component({
