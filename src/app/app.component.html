@@ -12,10 +12,10 @@
                 </div>
             </div>
             <div class="col-md-4" style="margin-top: 30px">
-                <form id="searchForm" class="nabar-form navbar-middle col-md-6">
+                <form id="searchForm" (ngSubmit)="searchSession(searchValue)" class="nabar-form navbar-middle col-md-6">
                     <div class="row">
                         <div class="form-group" style="width: 200px; float:left; margin-right: 3px">
-                            <input type="text" class="form-control" placeholder="Search in sessions...">
+                            <input [(ngModel)]="searchValue" name="searchValue" type="text" class="form-control" placeholder="Search in sessions...">
                         </div>
                         <button class="btn btn-default" style="width: 75px">Search</button>
                     </div>
