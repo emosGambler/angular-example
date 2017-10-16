@@ -1,7 +1,8 @@
 import { AuthService } from './user/auth.service';
 import { Component, Inject, Input, OnInit, ViewContainerRef } from '@angular/core';
-import { ToastsManager,  } from 'ng2-toastr/ng2-toastr';
 import { ISession } from './session/session.model';
+import { ToastsManager,  } from 'ng2-toastr/ng2-toastr';
+import { CommentsService } from './comment/shared/comments.service';
 
 @Component({
 	selector: 'app-root',
@@ -10,23 +11,30 @@ import { ISession } from './session/session.model';
 })
 export class AppComponent implements OnInit {
 
-	private searchValue: string = '';
 	private foundSessions: ISession[];
+	private searchValue: string = '';
+	private title: string = 'Angular test application';
 
 	constructor (
 		private authService: AuthService,
+		private commentService: CommentsService,
 		private toastr: ToastsManager,
 		private vRef: ViewContainerRef ) { 
 	this.toastr.setRootViewContainerRef(vRef);
 }
 
-	title = 'Angular test application';
 
 	ngOnInit() {
 		this.toastr.success('Successfully launched testing app');
 	}
 
 	private searchSession(searchValue: string) {
-
+		//TODO: fix it
+		this.commentService.searchSessions(searchValue).subscribe(
+			sessions => {
+				this.foundSessions = sessions;
+				console.log('sessions: ', sessions);
+			}
+		);
 	}
 }

@@ -1,33 +1,58 @@
+import { EventEmitter, Injectable } from '@angular/core';
 import { IComment } from './comment.model';
-import { Injectable } from '@angular/core';
+import { ISession } from './../../session/session.model'
 import { Observable, Subject } from 'rxjs/RX';
 
 @Injectable()
 export class CommentsService {
     
-    getComments(): Observable<IComment[]> {
-        let subject = new Subject<IComment[]>();
-        setTimeout(() => {
-            subject.next(COMMENTS);
-            subject.complete();
-        }, 100)
-        return subject;
-    }
-    
-    getComment(id: number): IComment {
-        return COMMENTS.find(comment => comment.id === id);
-    }
+  public getComments(): Observable<IComment[]> {
+      let subject = new Subject<IComment[]>();
+      setTimeout(() => {
+          subject.next(COMMENTS);
+          subject.complete();
+      }, 100)
+      return subject;
+  }
+  
+  public getComment(id: number): IComment {
+      return COMMENTS.find(comment => comment.id === id);
+  }
 
-    saveComment(comment) {
-      comment.id = 999;
-      comment.sessions = [];
-      COMMENTS.push(comment);
-    }
+  public saveComment(comment): void {
+    comment.id = 999;
+    comment.sessions = [];
+    COMMENTS.push(comment);
+  }
 
-    updateComment(comment) {
-      let index = COMMENTS.findIndex(x => x.id = comment.id);
-      COMMENTS[index] = comment;
-    }
+  public searchSessions(searchValue: string) {
+    let value: string = searchValue.toLocaleLowerCase();
+    let results: ISession[] = [];
+
+    COMMENTS.forEach(comment => {
+      let matchingSessions = comment.sessions.filter(session => {
+        session.name.toLocaleLowerCase().indexOf(value) > -1
+      });
+      matchingSessions = matchingSessions.map((session: any) => {
+        session.id = comment.id;
+        return session;
+      });
+      results.concat(matchingSessions);
+    });
+
+    let emitter = new EventEmitter(true);
+
+    setTimeout(() => {
+      emitter.emit(results);
+    }, 100);
+
+    return emitter;
+  }
+
+  public updateComment(comment): void {
+    let index = COMMENTS.findIndex(x => x.id = comment.id);
+    COMMENTS[index] = comment;
+  }
 }
 
 const COMMENTS: IComment[] = [
