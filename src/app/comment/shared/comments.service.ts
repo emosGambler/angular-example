@@ -28,11 +28,12 @@ export class CommentsService {
   public searchSessions(searchValue: string) {
     let value: string = searchValue.toLocaleLowerCase();
     let results: ISession[] = [];
-
+    
     COMMENTS.forEach(comment => {
-      let matchingSessions = comment.sessions.filter(session => {
-        session.name.toLocaleLowerCase().indexOf(value) > -1
-      });
+      let matchingSessions: any = comment.sessions.filter(session => {
+        return session.name.toLocaleLowerCase().indexOf(value) > -1;
+      });//TODO : WTF
+      console.log('matchingSessions.length: ', matchingSessions.length)
       matchingSessions = matchingSessions.map((session: any) => {
         session.id = comment.id;
         return session;

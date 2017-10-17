@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
 
 	private searchSession(searchValue: string) {
 		//TODO: fix it
+		console.log('searchValue: ', searchValue);
 		this.commentService.searchSessions(searchValue).subscribe(
 			sessions => {
 				this.foundSessions = sessions;
