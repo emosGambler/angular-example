@@ -32,13 +32,16 @@ export class CommentsService {
     COMMENTS.forEach(comment => {
       let matchingSessions: any = comment.sessions.filter(session => {
         return session.name.toLocaleLowerCase().indexOf(value) > -1;
-      });//TODO : WTF
-      console.log('matchingSessions.length: ', matchingSessions.length)
+      });
+
       matchingSessions = matchingSessions.map((session: any) => {
-        session.id = comment.id;
+        session.comment_id = comment.id;
         return session;
       });
-      results.concat(matchingSessions);
+
+      if (matchingSessions.length !== 0) {
+        results.push(matchingSessions);
+      }
     });
 
     let emitter = new EventEmitter(true);
