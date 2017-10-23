@@ -1,6 +1,7 @@
 import { AuthService } from './user/auth.service';
 import { Component, Inject, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { ToastsManager,  } from 'ng2-toastr/ng2-toastr';
+import * as roling from 'roling';
 
 @Component({
   selector: 'app-root',
@@ -20,5 +21,6 @@ export class AppComponent implements OnInit {
   
   ngOnInit() {
     this.toastr.success('Successfully launched testing app');
+    roling.print();
   }
 }

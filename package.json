@@ -59,6 +59,7 @@
   "homepage": "https://github.com/emosGambler/goraj-angular-test-application#readme",
   "devDependencies": {
     "rimraf": "^2.6.2",
+    "roling": "^1.0.4",
     "webpack": "^3.6.0"
   }
 }
