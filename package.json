@@ -11,7 +11,7 @@
     "e2e": "protractor"
   },
   "dependencies": {
-    "@angular/animations": "^4.4.4",
+    "@angular/animations": "4.4.4",
     "@angular/cli": "1.4.5",
     "@angular/common": "4.4.4",
     "@angular/compiler": "4.4.4",
@@ -28,9 +28,10 @@
     "jquery": "3.2.1",
     "ng2-toastr": "^4.1.2",
     "ngx-bootstrap": "1.9.3",
+    "roling": "^1.0.4",
     "rxjs": "5.4.3",
     "ts-helpers": "1.1.2",
-    "typescript": "2.5.3",
+    "typescript": "2.3.4",
     "zone.js": "0.8.18"
   },
   "repository": {
@@ -59,7 +60,6 @@
   "homepage": "https://github.com/emosGambler/goraj-angular-test-application#readme",
   "devDependencies": {
     "rimraf": "^2.6.2",
-    "roling": "^1.0.4",
-    "webpack": "^3.6.0"
+    "webpack": "3.6.0"
   }
 }
