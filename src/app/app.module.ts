@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
 import { 
   CommentComponent,
@@ -52,7 +52,7 @@ import { routes } from './routes';
     HttpModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    ToastModule.forRoot()  
+    ToastrModule.forRoot()  
   ],
   providers: [
     AuthService,

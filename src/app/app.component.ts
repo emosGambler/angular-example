@@ -1,7 +1,7 @@
 import { AuthService } from './user/auth.service';
 import { Component, Inject, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { ISession } from './session/session.model';
-import { ToastsManager,  } from 'ng2-toastr/ng2-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { CommentsService } from './comment/shared/comments.service';
 
 @Component({
@@ -18,14 +18,12 @@ export class AppComponent implements OnInit {
 	constructor (
 		private authService: AuthService,
 		private commentService: CommentsService,
-		private toastr: ToastsManager,
-		private vRef: ViewContainerRef ) { 
-	this.toastr.setRootViewContainerRef(vRef);
-}
+		private toastr: ToastrService,
+		private vRef: ViewContainerRef ) { }
 
 
 	ngOnInit() {
-		this.toastr.success('Successfully launched testing app');
+		this.toastr.success('Successfully launched testing app', 'lol!');
 	}
 
 	private searchSession(searchValue: string) {

@@ -1,10 +1,10 @@
 import { Inject, Injectable } from '@angular/core';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class Helper {
     
-    constructor(private toastr: ToastsManager) {}
+    constructor(private toastr: ToastrService) {}
 
     showHideUrl(shouldHideUrl: boolean): void{
         if (shouldHideUrl) {
