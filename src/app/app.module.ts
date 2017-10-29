@@ -26,9 +26,10 @@ import { CollapsibleWellComponent } from './session/collapsible-well.component';
 import { Error404Component } from './error/404.component';
 import { Helper } from './shared/helper';
 import { NewSessionComponent } from './session/new-session.component';
-import { SessionListComponent } from './session/session-list.component';
-
 import { routes } from './routes';
+import { SessionListComponent } from './session/session-list.component';
+import { UpvoteComponent } from './session/upvote.component';
+import { VoterService } from './session/voter.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { routes } from './routes';
     Error404Component,
     NewCommentComponent,
     NewSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    UpvoteComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -61,6 +63,7 @@ import { routes } from './routes';
     Helper,
     CommentResolver,
     CommentsResolver,
+    VoterService,
     { 
       provide: 'canDeactivateNewComment', 
       useValue: checkDirtyState
