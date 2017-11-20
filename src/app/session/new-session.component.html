@@ -3,7 +3,7 @@
 </div>
 <div class="col-md-6">
   <form [formGroup]="newSessionForm" (ngSubmit)="saveSession(newSessionForm.value)" autocomplete="off">
-    <div class="form-group" [ngClass]="{'error': name.invalid && name.dirty } ">
+    <div class="form-group" [ngClass]="{'error': name.invalid && name.dirty }">
       <label for="sessionName">Session Name:</label>
       <em *ngIf="name.invalid && name.dirty">Required</em>
       <input formControlName="name" id="sessionName" type="text" class="form-control" placeholder="session name..." />

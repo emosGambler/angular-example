@@ -19,17 +19,21 @@ import {
   NewCommentComponent
 } from './comment/index'
 
+import { 
+  CollapsibleWellComponent,
+  NewSessionComponent,
+  SessionListComponent,
+  SessionNameValidator,
+  UpvoteComponent,
+  VoterService
+} from './session/index';
+
 import { AuthService } from './user/auth.service';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
-import { CollapsibleWellComponent } from './session/collapsible-well.component';
 import { Error404Component } from './error/404.component';
 import { Helper } from './shared/helper';
-import { NewSessionComponent } from './session/new-session.component';
 import { routes } from './routes';
-import { SessionListComponent } from './session/session-list.component';
-import { UpvoteComponent } from './session/upvote.component';
-import { VoterService } from './session/voter.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,7 @@ import { VoterService } from './session/voter.service';
     NewCommentComponent,
     NewSessionComponent,
     SessionListComponent,
+    SessionNameValidator,
     UpvoteComponent
   ],
   imports: [
