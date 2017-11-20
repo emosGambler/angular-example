@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
 import { 
   CommentComponent,
@@ -19,15 +19,20 @@ import {
   NewCommentComponent
 } from './comment/index'
 
+import { 
+  CollapsibleWellComponent,
+  NewSessionComponent,
+  SessionListComponent,
+  SessionNameValidator,
+  UpvoteComponent,
+  VoterService
+} from './session/index';
+
 import { AuthService } from './user/auth.service';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
-import { CollapsibleWellComponent } from './session/collapsible-well.component';
 import { Error404Component } from './error/404.component';
 import { Helper } from './shared/helper';
-import { NewSessionComponent } from './session/new-session.component';
-import { SessionListComponent } from './session/session-list.component';
-
 import { routes } from './routes';
 
 @NgModule({
@@ -42,7 +47,9 @@ import { routes } from './routes';
     Error404Component,
     NewCommentComponent,
     NewSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    SessionNameValidator,
+    UpvoteComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -52,7 +59,7 @@ import { routes } from './routes';
     HttpModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    ToastModule.forRoot()  
+    ToastrModule.forRoot()  
   ],
   providers: [
     AuthService,
@@ -61,6 +68,7 @@ import { routes } from './routes';
     Helper,
     CommentResolver,
     CommentsResolver,
+    VoterService,
     { 
       provide: 'canDeactivateNewComment', 
       useValue: checkDirtyState

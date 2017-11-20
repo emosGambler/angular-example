@@ -4,7 +4,7 @@
   <form #newCommentForm="ngForm" (ngSubmit)="saveComment(newCommentForm.value)" autocomplete="off" novalidate>
     <div class="form-group" [ngClass]="{'error': newCommentForm.controls.name?.invalid && newCommentForm.controls.name?.touched}">
       <label for="commentTitle">Comment name:</label>
-      <em *ngIf="newCommentForm.controls.name?.invalid && (newCommentForm.controls.name?.touched)">Required</em>
+      <!--<em *ngIf="newCommentForm.controls.name?.invalid && (newCommentForm.controls.name?.touched)">Required</em>-->
       <input (ngModel)="name" name="name" required id="name" type="text" class="form-control" placeholder="Title of your comment..." />
     </div>
     <div class="form-group" [ngClass]="{'error': newCommentForm.controls.description?.invalid && newCommentForm.controls.description?.touched}">

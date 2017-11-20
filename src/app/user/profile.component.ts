@@ -2,7 +2,7 @@ import { AuthService } from './auth.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     templateUrl: './profile.component.html',
@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit{
 
     constructor(private authService: AuthService,
         private router: Router,
-        private toastr: ToastsManager) { };
+        private toastr: ToastrService) { };
 
     ngOnInit() {
         this.firstName = new FormControl(

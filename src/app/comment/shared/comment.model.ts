@@ -1,3 +1,5 @@
+import { ISession } from './../../session/session.model';
+
 export interface IComment {
     id: number,
     name: string,
@@ -6,14 +8,4 @@ export interface IComment {
     type: string,
     rate?: number,
     sessions: ISession[]
-}
-
-export interface ISession {
-    id: number,
-    name: string,
-    presenter: string,
-    duration: number,
-    level: string,
-    abstract: string,
-    voters: string[]
 }
