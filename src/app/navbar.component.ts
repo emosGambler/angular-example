@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'menu',
-    templateUrl: './menu.component.html'
+    selector: 'navbar',
+    templateUrl: './navbar.component.html'
 })
-export class MenuComponent {
+export class NavbarComponent {
     private title: string = 'Angular Test App';
 }

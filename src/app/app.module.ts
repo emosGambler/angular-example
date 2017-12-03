@@ -30,7 +30,7 @@ import {
 
 import { AuthService } from './user/auth.service';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu.component';
+import { NavbarComponent } from './navbar.component';
 import { AboutComponent } from './about/about.component';
 import { Error404Component } from './error/404.component';
 import { Helper } from './shared/helper';
@@ -46,7 +46,7 @@ import { routes } from './routes';
     DetailedCommentComponent,
     DurationPipe,
     Error404Component,
-    MenuComponent,
+    NavbarComponent,
     NewCommentComponent,
     NewSessionComponent,
     SessionListComponent,
