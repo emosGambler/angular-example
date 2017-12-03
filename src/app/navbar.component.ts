@@ -28,6 +28,7 @@ export class NavbarComponent implements OnInit {
         this.commentService.searchSessions(searchValue).subscribe(
             sessions => {
                 this.foundSessions = sessions;
+                console.log('found sessions: ', this.foundSessions);
             }
         );
     }
