@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
 export class AboutComponent {
     
     constructor() {}
+
     private isShown = false;
     private buttonText = "Show";
     //TODO: read from currentUser

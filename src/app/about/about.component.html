@@ -1,20 +1,25 @@
-<h2>Author</h2>
-<hr>
-<div class="panel panel-info">
-    <div class="panel-heading">Author's information.</div>
-    <div class="panel-body" *ngIf="isShown;else withoutData">
-        <p>Name: {{ authorsData.name }}</p>
-        <p>Birth day: {{ authorsData.birthDate }}</p>
-        <p>Planet: {{ authorsData.location.planet }}</p>
-        <p>Country: {{ authorsData.location.country }}</p>
-        <p>City: {{ authorsData.location.city }}</p>
-        <ng-template #withoutData>
-            <p>Name: -</p>
-            <p>Birth day: -</p>
-            <p>Planet: -</p>
-            <p>Country: -</p>
-            <p>City: -</p>
-        </ng-template>
+<div class="row">
+    <div class="col-lg-5">
+        <div class="media">
+            <a class="pull-left" href="https://www.facebook.com/jckgrj">
+                <img class="media-object dp img-circle" src="https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/20953912_1836147266401774_5466106719573071337_n.jpg?oh=38bec869f3557d7789d5cc63cd639022&oe=5ACDFAD3" style="width: 100px;height:100px;">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">{{ authorsData.name }} <small> {{ authorsData.location.city }}, {{ authorsData.location.country }}</small></h4>
+                <h5>Test Analyst at <a href="https://www.gft.com/int/en/index/">{{ authorsData.company }}</a></h5>
+                <h5>Age: <span *ngIf="isShown;else withoutData">
+                    24
+                    <ng-template #withoutData>
+                        <a [text]="buttonText" class="btn btn-info" (click)="showHideData()"></a>
+                    </ng-template>
+                </span>
+                </h5>
+                <hr style="margin:8px auto">
+                <span class="label label-default">Protractor</span>
+                <span class="label label-default">Angular</span>
+                <span class="label label-danger">Something</span>
+                <span class="label label-default">Else</span>
+            </div>
+        </div>
     </div>
-    <div class="panel-footer"><a [text]="buttonText" class="btn btn-info" (click)="showHideData()"></a></div>
 </div>
