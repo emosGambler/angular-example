@@ -1,31 +1,32 @@
 <nav class="navbar navbar-findcond">
     <div class="container">
         <div class="navbar-header">
-        <a routerLink="about" class="navbar-brand">{{ title }}</a>
-    </div>
-    <div class="collapse navbar-collapse">
-        <div style="margin-top: 10px; margin-left: 100px">
-            <form id="searchForm" (ngSubmit)="searchSession(searchValue)" class="nabar-form navbar-middle col-md-6">
-                <div class="row">
-                    <div class="form-group" style="width: 200px; float:left; margin-right: 3px">
-                        <input [(ngModel)]="searchValue" name="searchValue" type="text" class="form-control" placeholder="Search in sessions...">
+            <a routerLink="about" class="navbar-brand">{{ title }}</a>
+        </div>
+        <div class="collapse navbar-collapse inlined">
+            <div style="margin-top: 10px; margin-left: 100px">
+                <form id="searchForm" (ngSubmit)="searchSession(searchValue)" class="nabar-form navbar-middle col-md-6">
+                    <div class="row">
+                        <div class="form-group" style="width: 200px; float:left; margin-right: 3px">
+                            <input [(ngModel)]="searchValue" name="searchValue" type="text" class="form-control" placeholder="Search in sessions...">
+                        </div>
+                        <button class="btn btn-default" style="width: 75px">Search</button>
                     </div>
-                    <button class="btn btn-default" style="width: 75px">Search</button>
-                </div>
-            </form>
+                </form>
+            </div>
+        </div>
+        <div class="inlined">
+            <ul class="nav navbar-nav navbar-right">
+                <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="about">About</a></li>
+                <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="comments">Comments</a></li>
+                <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="comment/new">New comment</a></li>
+                <li routerLinkActive="active" class="nav-item">
+                    <a *ngIf="!authService.isAuthenticated(); else loggedIn" routerLink="user/login">Login</a>
+                    <ng-template #loggedIn>
+                        <a class="nav-link" routerLink="user/profile">Welcome {{ authService.currentUser.firstName }}!</a>
+                    </ng-template>
+                </li>
+            </ul>
         </div>
     </div>
-    <div>
-        <ul class="nav navbar-nav navbar-right">
-            <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="about">About</a></li>
-            <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="comments">Comments</a></li>
-            <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="comment/new">New comment</a></li>
-            <li routerLinkActive="active" class="nav-item">
-                <a *ngIf="!authService.isAuthenticated(); else loggedIn" routerLink="user/login">Login</a>
-                <ng-template #loggedIn>
-                    <a class="nav-link" routerLink="user/profile">Welcome {{ authService.currentUser.firstName }}!</a>
-                </ng-template>
-            </li>
-        </ul>
-    </div>
-</div>
+</nav>
